@@ -2,77 +2,84 @@
 import random
 
 decks = {
-    'A_Spade': {'value': 1, 'name': 'A', 'suit': 'Spade'},
-    'A_Heart': {'value': 1, 'name': 'A', 'suit': 'Heart'},
-    'A_Club': {'value': 1, 'name': 'A', 'suit': 'Club'},
-    'A_Diamond': {'value': 1, 'name': 'A', 'suit': 'Diamond'},
+    '♠️_A': {'value': 1, 'name': 'A', 'suit': '♠️'},
+    '♥️_A': {'value': 1, 'name': 'A', 'suit': '♥️'},
+    '♣️_A': {'value': 1, 'name': 'A', 'suit': '♣️'},
+    '♦️_A': {'value': 1, 'name': 'A', 'suit': '♦️'},
 
-    '2_Spade': {'value': 2, 'name': '2', 'suit': 'Spade'},
-    '2_Heart': {'value': 2, 'name': '2', 'suit': 'Heart'},
-    '2_Club': {'value': 2, 'name': '2', 'suit': 'Club'},
-    '2_Diamond': {'value': 2, 'name': '2', 'suit': 'Diamond'},
+    '♠️_2': {'value': 2, 'name': '2', 'suit': '♠️'},
+    '♥️_2': {'value': 2, 'name': '2', 'suit': '♥️'},
+    '♣️_2': {'value': 2, 'name': '2', 'suit': '♣️'},
+    '♦️_2': {'value': 2, 'name': '2', 'suit': '♦️'},
 
-    '3_Spade': {'value': 3, 'name': '3', 'suit': 'Spade'},
-    '3_Heart': {'value': 3, 'name': '3', 'suit': 'Heart'},
-    '3_Club': {'value': 3, 'name': '3', 'suit': 'Club'},
-    '3_Diamond': {'value': 3, 'name': '3', 'suit': 'Diamond'},
+    '♠️_3': {'value': 3, 'name': '3', 'suit': '♠️'},
+    '♥️_3': {'value': 3, 'name': '3', 'suit': '♥️'},
+    '♣️_3': {'value': 3, 'name': '3', 'suit': '♣️'},
+    '♦️_3': {'value': 3, 'name': '3', 'suit': '♦️'},
 
-    '4_Spade': {'value': 4, 'name': '4', 'suit': 'Spade'},
-    '4_Heart': {'value': 4, 'name': '4', 'suit': 'Heart'},
-    '4_Club': {'value': 4, 'name': '4', 'suit': 'Club'},
-    '4_Diamond': {'value': 4, 'name': '4', 'suit': 'Diamond'},
+    '♠️_4': {'value': 4, 'name': '4', 'suit': '♠️'},
+    '♥️_4': {'value': 4, 'name': '4', 'suit': '♥️'},
+    '♣️_4': {'value': 4, 'name': '4', 'suit': '♣️'},
+    '♦️_4': {'value': 4, 'name': '4', 'suit': '♦️'},
 
-    '5_Spade': {'value': 5, 'name': '5', 'suit': 'Spade'},
-    '5_Heart': {'value': 5, 'name': '5', 'suit': 'Heart'},
-    '5_Club': {'value': 5, 'name': '5', 'suit': 'Club'},
-    '5_Diamond': {'value': 5, 'name': '5', 'suit': 'Diamond'},
+    '♠️_5': {'value': 5, 'name': '5', 'suit': '♠️'},
+    '♥️_5': {'value': 5, 'name': '5', 'suit': '♥️'},
+    '♣️_5': {'value': 5, 'name': '5', 'suit': '♣️'},
+    '♦️_5': {'value': 5, 'name': '5', 'suit': '♦️'},
 
-    '6_Spade': {'value': 6, 'name': '6', 'suit': 'Spade'},
-    '6_Heart': {'value': 6, 'name': '6', 'suit': 'Heart'},
-    '6_Club': {'value': 6, 'name': '6', 'suit': 'Club'},
-    '6_Diamond': {'value': 6, 'name': '6', 'suit': 'Diamond'},
+    '♠️_6': {'value': 6, 'name': '6', 'suit': '♠️'},
+    '♥️_6': {'value': 6, 'name': '6', 'suit': '♥️'},
+    '♣️_6': {'value': 6, 'name': '6', 'suit': '♣️'},
+    '♦️_6': {'value': 6, 'name': '6', 'suit': '♦️'},
 
-    '7_Spade': {'value': 7, 'name': '7', 'suit': 'Spade'},
-    '7_Heart': {'value': 7, 'name': '7', 'suit': 'Heart'},
-    '7_Club': {'value': 7, 'name': '7', 'suit': 'Club'},
-    '7_Diamond': {'value': 7, 'name': '7', 'suit': 'Diamond'},
+    '♠️_7': {'value': 7, 'name': '7', 'suit': '♠️'},
+    '♥️_7': {'value': 7, 'name': '7', 'suit': '♥️'},
+    '♣️_7': {'value': 7, 'name': '7', 'suit': '♣️'},
+    '♦️_7': {'value': 7, 'name': '7', 'suit': '♦️'},
 
-    '8_Spade': {'value': 8, 'name': '8', 'suit': 'Spade'},
-    '8_Heart': {'value': 8, 'name': '8', 'suit': 'Heart'},
-    '8_Club': {'value': 8, 'name': '8', 'suit': 'Club'},
-    '8_Diamond': {'value': '8', 'name': '8', 'suit': 'Diamond'},
+    '♠️_8': {'value': 8, 'name': '8', 'suit': '♠️'},
+    '♥️_8': {'value': 8, 'name': '8', 'suit': '♥️'},
+    '♣️_8': {'value': 8, 'name': '8', 'suit': '♣️'},
+    '♦️_8': {'value': 8, 'name': '8', 'suit': '♦️'},
 
-    '9_Spade': {'value': 9, 'name': '9', 'suit': 'Spade'},
-    '9_Heart': {'value': 9, 'name': '9', 'suit': 'Heart'},
-    '9_Club': {'value': 9, 'name': '9', 'suit': 'Club'},
-    '9_Diamond': {'value': 9, 'name': '9', 'suit': 'Diamond'},
+    '♠️_9': {'value': 9, 'name': '9', 'suit': '♠️'},
+    '♥️_9': {'value': 9, 'name': '9', 'suit': '♥️'},
+    '♣️_9': {'value': 9, 'name': '9', 'suit': '♣️'},
+    '♦️_9': {'value': 9, 'name': '9', 'suit': '♦️'},
 
-    '10_Spade': {'value': 10, 'name': '10', 'suit': 'Spade'},
-    '10_Heart': {'value': 10, 'name': '10', 'suit': 'Heart'},
-    '10_Club': {'value': 10, 'name': '10', 'suit': 'Club'},
-    '10_Diamond': {'value': 10, 'name': '10', 'suit': 'Diamond'},
+    '♠️_10': {'value': 10, 'name': '10', 'suit': '♠️'},
+    '♥️_10': {'value': 10, 'name': '10', 'suit': '♥️'},
+    '♣️_10': {'value': 10, 'name': '10', 'suit': '♣️'},
+    '♦️_10': {'value': 10, 'name': '10', 'suit': '♦️'},
 
-    'J_Spade': {'value': 10, 'name': 'J', 'suit': 'Spade'},
-    'J_Heart': {'value': 10, 'name': 'J', 'suit': 'Heart'},
-    'J_Club': {'value': 10, 'name': 'J', 'suit': 'Club'},
-    'J_Diamond': {'value': 10, 'name': 'J', 'suit': 'Diamond'},
+    '♠️_J': {'value': 10, 'name': 'J', 'suit': '♠️'},
+    '♥️_J': {'value': 10, 'name': 'J', 'suit': '♥️'},
+    '♣️_J': {'value': 10, 'name': 'J', 'suit': '♣️'},
+    '♦️_J': {'value': 10, 'name': 'J', 'suit': '♦️'},
 
-    'Q_Spade': {'value': 10, 'name': 'Q', 'suit': 'Spade'},
-    'Q_Heart': {'value': 10, 'name': 'Q', 'suit': 'Heart'},
-    'Q_Club': {'value': 10, 'name': 'Q', 'suit': 'Club'},
-    'Q_Diamond': {'value': 10, 'name': 'Q', 'suit': 'Diamond'},
+    '♠️_Q': {'value': 10, 'name': 'Q', 'suit': '♠️'},
+    '♥️_Q': {'value': 10, 'name': 'Q', 'suit': '♥️'},
+    '♣️_Q': {'value': 10, 'name': 'Q', 'suit': '♣️'},
+    '♦️_Q': {'value': 10, 'name': 'Q', 'suit': '♦️'},
 
-    'K_Spade': {'value': 10, 'name': 'K', 'suit': 'Spade'},
-    'K_Heart': {'value': 10, 'name': 'K', 'suit': 'Heart'},
-    'K_Club': {'value': 10, 'name': 'K', 'suit': 'Club'},
-    'K_Diamond': {'value': 10, 'name': 'K', 'suit': 'Diamond'},
+    '♠️_K': {'value': 10, 'name': 'K', 'suit': '♠️'},
+    '♥️_K': {'value': 10, 'name': 'K', 'suit': '♥️'},
+    '♣️_K': {'value': 10, 'name': 'K', 'suit': '♣️'},
+    '♦️_K': {'value': 10, 'name': 'K', 'suit': '♦️'},
 }
 
 
 def play():
     current_players = {}
     print("Welcome to the game of Blackjack!")
-    player_count = int(input("How many players are there >> "))
+    while True:
+        player_count = int(input("How many players are there >> "))
+
+        if player_count < 2:
+            print("There must be at least one player!")
+
+        else:
+            break
 
     for i in range(player_count):
         current_players[i] = {'name': input("Enter player name: "), 'cards': {}, 'total_value': 0}
@@ -90,13 +97,13 @@ def play():
             decks.pop(card)
 
     for i in current_players:
-        print(current_players[i]['name'], "has", current_players[i]['cards'][0], "and", current_players[i]['cards'][1])
+        print(current_players[i]['name'], "has", current_players[i]['cards'][0], ",", current_players[i]['cards'][1])
 
         current_holding_cards = 2
         while current_holding_cards < 5 and current_players[i]['total_value'] < 21:
-            action = input("Are you satisfied with your cards? (NO/YES) >> ")
+            action = input("Are you satisfied with your cards? (n/y) >> ")
 
-            if action.upper() == "NO":
+            if action.upper() == "N":
                 current_players[i]['cards'][current_holding_cards] = getRandomCard()
                 decks.pop(current_players[i]['cards'][current_holding_cards])
 
@@ -106,7 +113,7 @@ def play():
                 break
 
     print("The game is over!")
-    print("The winner is", getWinner(current_players))
+    print("The winner is ->", getWinner(current_players))
 
 
 def getRandomCard():
@@ -115,9 +122,11 @@ def getRandomCard():
 
 def getWinner(players):
     current_winner = {}
-    for i in players:
-        if current_winner.keys() == 0:
+    for i in range(len(players)):
+        if not current_winner:
             current_winner = players[i]
+            continue
+
         else:
             if players[i]['total_value'] > current_winner['total_value']:
                 current_winner = players[i]

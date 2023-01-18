@@ -2,10 +2,10 @@
 import random
 
 decks = {
-    'A_Spade': {'value': 11, 'name': 'A', 'suit': 'Spade'},
-    'A_Heart': {'value': 11, 'name': 'A', 'suit': 'Heart'},
-    'A_Club': {'value': 11, 'name': 'A', 'suit': 'Club'},
-    'A_Diamond': {'value': 11, 'name': 'A', 'suit': 'Diamond'},
+    'A_Spade': {'value': 1, 'name': 'A', 'suit': 'Spade'},
+    'A_Heart': {'value': 1, 'name': 'A', 'suit': 'Heart'},
+    'A_Club': {'value': 1, 'name': 'A', 'suit': 'Club'},
+    'A_Diamond': {'value': 1, 'name': 'A', 'suit': 'Diamond'},
 
     '2_Spade': {'value': 2, 'name': '2', 'suit': 'Spade'},
     '2_Heart': {'value': 2, 'name': '2', 'suit': 'Heart'},
@@ -80,7 +80,13 @@ def play():
         for x in range(2):
             card = getRandomCard()
             current_players[i]['cards'][x] = card
-            current_players[i]['total_value'] += decks[card]['value']
+
+            if decks[card]['value'] == 1:
+                if current_players[i]['total_value'] + 11 > 21:
+                    current_players[i]['total_value'] += 1
+                else:
+                    current_players[i]['total_value'] += 11
+
             decks.pop(card)
 
     for i in current_players:

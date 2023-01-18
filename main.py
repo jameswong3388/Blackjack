@@ -104,10 +104,13 @@ def play():
             action = input("Are you satisfied with your cards? (n/y) >> ")
 
             if action.upper() == "N":
-                current_players[i]['cards'][current_holding_cards] = getRandomCard()
+                new_card = getRandomCard()
+                current_players[i]['cards'][current_holding_cards] = new_card
                 decks.pop(current_players[i]['cards'][current_holding_cards])
 
-                print(current_players[i]['name'], "has gotten", current_players[i]['cards'])
+                print(current_players[i]['name'], "has gotten", new_card)
+                print('Updated cards:', current_players[i]['cards'])
+
                 current_holding_cards += 1
             else:
                 break

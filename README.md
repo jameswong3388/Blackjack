@@ -1,2 +1,3 @@
 Credits:
-    - Theoretical Support [Gino Ng](https://github.com/GinoNg88)
+    
+- Theoretical Support [Gino Ng](https://github.com/GinoNg88)

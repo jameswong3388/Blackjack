@@ -147,27 +147,29 @@ def getBetterSuit(player1, player2):
 
 
 def getWinner(players):
-    current_winner = {}
-    for i in range(len(players)):
-        if not current_winner:
-            current_winner = players[i]
-            continue
+    filtered_data = []
 
-        else:
-            if current_winner['total_value'] < players[i]['total_value'] <= 21:
-                current_winner = players[i]
+    for key, value in players.items():
+        if value['total_value'] < 21 and rule_double_A(value['cards']):
+            filtered_data.append(value)
 
-            elif players[i]['total_value'] == current_winner['total_value']:
-                # if the total value is the same, check if both of them have two A cards, then the one with spades wins
-                # else return draw
-                if len([card for card in players[i]['cards'].values() if card == 'A']) == 2 and len(
-                        [card for card in current_winner['cards'].values() if card == 'A']) == 2:
-                    current_winner = getBetterSuit(players[i], current_winner)
+    if not filtered_data:
+        return print("Draw!")
 
-                else:
-                    return print("It's a draw!")
+    highest = max([item['total_value'] for item in filtered_data])
+    current_winner = [item for item in filtered_data if item['total_value'] == highest]
 
-    return print(current_winner['name'], "has won the game!")
+    if len(current_winner) == 1:
+        print(current_winner[0]['name'], "is the winner with a total of", current_winner[0]['total_value'])
+
+    else:
+        print("There is a tie between", [player['name'] for player in current_winner], "with a total of",
+              current_winner[0]['total_value'])
+
+
+def rule_double_A(cards):
+    return (list(cards.values()).count('♠️_A') + list(cards.values()).count('♥️_A') + list(cards.values()).count(
+        '♣️_A') + list(cards.values()).count('♦️_A')) < 2
 
 
 if __name__ == "__main__":

@@ -81,6 +81,8 @@ def play():
         else:
             break
 
+    print("")
+
     for i in range(player_count):
         current_players[i] = {'name': input("Enter player name: "), 'cards': {}, 'total_value': 0}
 
@@ -94,10 +96,16 @@ def play():
                 else:
                     current_players[i]['total_value'] += 11
 
+            else:
+                current_players[i]['total_value'] += decks[card]['value']
+
             decks.pop(card)
 
+    print("")
+
     for i in current_players:
-        print(current_players[i]['name'], "has", current_players[i]['cards'][0], ",", current_players[i]['cards'][1])
+        print(current_players[i]['name'], "has", [card for card in current_players[i]['cards'].values()],
+              "for a total of", current_players[i]['total_value'])
 
         current_holding_cards = 2
         while current_holding_cards < 5 and current_players[i]['total_value'] < 21:
@@ -106,21 +114,36 @@ def play():
             if action.upper() == "N":
                 new_card = getRandomCard()
                 current_players[i]['cards'][current_holding_cards] = new_card
+                current_players[i]['total_value'] += decks[new_card]['value']
+
                 decks.pop(current_players[i]['cards'][current_holding_cards])
 
                 print(current_players[i]['name'], "has gotten", new_card)
-                print('Updated cards:', current_players[i]['cards'])
+                print('Updated cards:', [card for card in current_players[i]['cards'].values()], "for a total of",
+                      current_players[i]['total_value'])
 
                 current_holding_cards += 1
             else:
+                print("")
                 break
 
+        print("")
+
     print("The game is over!")
-    print("The winner is ->", getWinner(current_players))
+    getWinner(current_players)
 
 
 def getRandomCard():
     return random.choice(list(decks.keys()))
+
+
+def getBetterSuit(player1, player2):
+    # check who has spades
+    if '♠️' in player1['cards'].values():
+        return player1
+
+    else:
+        return player2
 
 
 def getWinner(players):
@@ -131,13 +154,20 @@ def getWinner(players):
             continue
 
         else:
-            if players[i]['total_value'] > current_winner['total_value']:
+            if current_winner['total_value'] < players[i]['total_value'] <= 21:
                 current_winner = players[i]
 
             elif players[i]['total_value'] == current_winner['total_value']:
-                pass
+                # if the total value is the same, check if both of them have two A cards, then the one with spades wins
+                # else return draw
+                if len([card for card in players[i]['cards'].values() if card == 'A']) == 2 and len(
+                        [card for card in current_winner['cards'].values() if card == 'A']) == 2:
+                    current_winner = getBetterSuit(players[i], current_winner)
 
-    return current_winner['name']
+                else:
+                    return print("It's a draw!")
+
+    return print(current_winner['name'], "has won the game!")
 
 
 if __name__ == "__main__":

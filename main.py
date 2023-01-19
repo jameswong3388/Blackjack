@@ -130,7 +130,47 @@ def play():
         print("")
 
     print("The game is over!")
-    getWinner(current_players)
+    print(getWinner(current_players))
+
+
+def getWinner(players):
+    filtered_players = []
+    player_double_A = []
+
+    for key, value in players.items():
+        if value['total_value'] < 21:
+            filtered_players.append(value)
+
+    if not filtered_players:
+        return "Draw!"
+
+    # Rule - Double A
+    for item in filtered_players:
+        if rule_double_A(item['cards']):
+            player_double_A.append(item)
+
+    if player_double_A:
+        print(player_double_A)
+        if len(player_double_A) == 1:
+            return player_double_A[0]['name'], "has won the game with Double A!"
+
+        else:
+            winner = getBetterSuit(player_double_A[0], player_double_A[1])
+            return winner['name'], "has won the game with Double A!"
+
+    # Rule - Highest value
+    highest_value = max([item['total_value'] for item in filtered_players])
+    player_highest_value = [item for item in filtered_players if item['total_value'] == highest_value]
+
+    if player_highest_value:
+        if len(player_highest_value) == 1:
+            return (
+                player_highest_value[0]['name'], "is the winner with a total of",
+                player_highest_value[0]['total_value'])
+
+        elif len(player_highest_value) == 2:
+            return ("There is a tie between", [player['name'] for player in player_highest_value], "with a total of",
+                    player_highest_value[0]['total_value'])
 
 
 def getRandomCard():
@@ -139,37 +179,19 @@ def getRandomCard():
 
 def getBetterSuit(player1, player2):
     # check who has spades
-    if '♠️' in player1['cards'].values():
+    if '♠️_A' in player1['cards'].values():
         return player1
 
     else:
         return player2
 
 
-def getWinner(players):
-    filtered_data = []
-
-    for key, value in players.items():
-        if value['total_value'] < 21 and rule_double_A(value['cards']):
-            filtered_data.append(value)
-
-    if not filtered_data:
-        return print("Draw!")
-
-    highest = max([item['total_value'] for item in filtered_data])
-    current_winner = [item for item in filtered_data if item['total_value'] == highest]
-
-    if len(current_winner) == 1:
-        print(current_winner[0]['name'], "is the winner with a total of", current_winner[0]['total_value'])
-
-    else:
-        print("There is a tie between", [player['name'] for player in current_winner], "with a total of",
-              current_winner[0]['total_value'])
-
-
 def rule_double_A(cards):
-    return (list(cards.values()).count('♠️_A') + list(cards.values()).count('♥️_A') + list(cards.values()).count(
-        '♣️_A') + list(cards.values()).count('♦️_A')) < 2
+    list_of_A_cards = ['♠️_A', '♥️_A', '♣️_A', '♦️_A']
+    # check if player has hold double A
+    if cards[0] in list_of_A_cards and cards[1] in list_of_A_cards:
+        return True
+    return False
 
 
 if __name__ == "__main__":

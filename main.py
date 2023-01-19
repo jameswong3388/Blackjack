@@ -137,7 +137,7 @@ def getWinner(players):
     filtered_players = []
 
     for key, value in players.items():
-        if value['total_value'] < 21:
+        if value['total_value'] <= 21:
             filtered_players.append(value)
 
     if not filtered_players:

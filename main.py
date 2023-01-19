@@ -135,7 +135,6 @@ def play():
 
 def getWinner(players):
     filtered_players = []
-    player_double_A = []
 
     for key, value in players.items():
         if value['total_value'] < 21:
@@ -145,6 +144,8 @@ def getWinner(players):
         return "Draw!"
 
     # Rule - Double A
+    player_double_A = []
+
     for item in filtered_players:
         if rule_double_A(item['cards']):
             player_double_A.append(item)

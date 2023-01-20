@@ -4,6 +4,7 @@
 # Rule_Highest value - If there is a tie, the player with the highest value wins.
 
 import random
+import time
 
 decks = {
     '♠️_A': {'value': 1, 'name': 'A', 'suit': '♠️'},
@@ -135,6 +136,7 @@ def play():
 
     print("The game is over!")
     print(getWinner(current_players))
+    time.sleep(2.5)
 
 
 def getWinner(players):

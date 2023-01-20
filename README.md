@@ -1,6 +1,6 @@
 ## Intro
 
-Introducing a minimal version of the classic card game Blackjack, now available in Python!
+Introducing a minimal version of the classic card game Blackjack, now available in Python! 🥳
 
 This version of the game does not include a dealer, allowing players to focus on honing their own strategy and skills.
 

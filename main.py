@@ -1,4 +1,8 @@
 # This is the code for creating Black Jack game using Python
+
+# Rule_Double A - If a player has two A cards, he/she wins the game.
+# Rule_Highest value - If there is a tie, the player with the highest value wins.
+
 import random
 
 decks = {
@@ -109,9 +113,9 @@ def play():
 
         current_holding_cards = 2
         while current_holding_cards < 5 and current_players[i]['total_value'] < 21:
-            action = input("Are you satisfied with your cards? (n/y) >> ")
+            action = input("Hit? (n/y) >> ")
 
-            if action.upper() == "N":
+            if action.upper() == "Y":
                 new_card = getRandomCard()
                 current_players[i]['cards'][current_holding_cards] = new_card
                 current_players[i]['total_value'] += decks[new_card]['value']

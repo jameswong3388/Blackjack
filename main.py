@@ -80,7 +80,7 @@ def play():
         player_count = int(input("How many players are there >> "))
 
         if player_count < 2:
-            print("There must be at least one player!")
+            print("There must be at least 2 player!")
 
         else:
             break

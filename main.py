@@ -180,7 +180,7 @@ def getRandomCard():
 
 def getBetterSuit(player1, player2):
     # check who has spades
-    if '♠️_A' in player1['cards'].values():
+    if '♠️' in player1['cards']['suit']:
         return player1
 
     else:
